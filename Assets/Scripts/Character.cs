@@ -10,6 +10,8 @@ public class Character : MonoBehaviour
 
     [Header("PlayerSettings")]
     [Space(2)]
+    public GameObject playerInstance;
+    public Transform spawnLocation;
     [Tooltip("speed value must be between 1 and 6.")]
     [Range(1.0f, 6.0f)]
     public float speed;
@@ -148,6 +150,11 @@ public class Character : MonoBehaviour
             // Destroy Projectile after 2.0s
             //Destroy(temp.gameObject, 2.0f);
         }
+    }
+
+    public void Respawn()
+    {
+        playerInstance.transform.position = spawnLocation.position;
     }
 
     [ContextMenu("Reset Stats")]
